@@ -12,7 +12,8 @@ packages = find_packages()
 setup(
     name='cfnGenie',
     version='0.1.0',
-    description='CfnGenie is an open source command-line interface (CLI) tool that enables users to generate AWS CloudFormation templates from existing AWS resources',
+    description='CfnGenie is an open source command-line interface (CLI) tool that enables users to generate AWS'
+                'CloudFormation templates from existing AWS resources',
     long_description=long_description,
     author='Rahul Lokurte',
     author_email='rahul.m.lokurte@gmail.com',
@@ -24,6 +25,6 @@ setup(
         ],
     },
     install_requires=[
-        'PyYAML==6.0', 'boto3==1.26.130', 'cookiecutter==2.1.1'
+        'PyYAML==6.0', 'boto3==1.26.130', 'cookiecutter==2.1.1', 'click==8.1.3', 'rich==13.3.5'
     ],
 )
