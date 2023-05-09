@@ -15,7 +15,8 @@ def main():
               help='Provide the AWS_SECRET_ACCESS_KEY as environment variable')
 @click.option('--aws_session_token', envvar='AWS_SESSION_TOKEN',
               help='Provide the AWS_SESSION_TOKEN as environment variable')
-def set_aws_env(aws_access_key_id, aws_secret_access_key, aws_session_token):
+@click.option('--name', required=True, help='Provide the Lambda Function Name')
+def set_aws_env(aws_access_key_id, aws_secret_access_key, aws_session_token, name):
     if not aws_access_key_id:
         aws_access_key_id = Prompt.ask('Please enter your AWS Access Key ID', password=True)
         os.environ['AWS_ACCESS_KEY_ID'] = aws_access_key_id
@@ -27,3 +28,5 @@ def set_aws_env(aws_access_key_id, aws_secret_access_key, aws_session_token):
     if not aws_session_token:
         aws_session_token = Prompt.ask('Please enter your AWS Session Token (optional)', password=True)
         os.environ['AWS_SESSION_TOKEN'] = aws_session_token
+
+    click.echo(f'Lambda function name is {name}')
